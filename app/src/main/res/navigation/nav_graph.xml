@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ListarFloraFragment">
+
+    <fragment
+        android:id="@+id/ListarFloraFragment"
+        android:name="com.example.floraad.view.fragments.ListarFloraFragment"
+        android:label="@string/listar_flora_fragment_label"
+        tools:layout="@layout/fragment_listar_flora">
+
+        <action
+            android:id="@+id/action_ListarFloraFragment_to_ListarImagenFragment"
+            app:destination="@id/ListarImagenFragment" />
+        <action
+            android:id="@+id/action_ListarFloraFragment_to_updateFloraFragment"
+            app:destination="@id/updateFloraFragment" />
+        <action
+            android:id="@+id/action_ListarFloraFragment_to_addFloraFragment"
+            app:destination="@id/addFloraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ListarImagenFragment"
+        android:name="com.example.floraad.view.fragments.ListarImagenFragment"
+        android:label="@string/listar_imagen_fragment_label"
+        tools:layout="@layout/fragment_listar_imagen">
+
+        <action
+            android:id="@+id/action_ListarImagenFragment_to_ListarFloraFragment"
+            app:destination="@id/ListarFloraFragment" />
+        <action
+            android:id="@+id/action_ListarImagenFragment_to_addImagenFragment"
+            app:destination="@id/addImagenFragment" />
+        <action
+            android:id="@+id/action_ListarImagenFragment_to_updateImagenFragment"
+            app:destination="@id/updateImagenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFloraFragment"
+        android:name="com.example.floraad.view.fragments.AddFloraFragment"
+        android:label="fragment_add_flora"
+        tools:layout="@layout/fragment_add_flora" >
+        <action
+            android:id="@+id/action_addFloraFragment_to_ListarFloraFragment"
+            app:destination="@id/ListarFloraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFloraFragment"
+        android:name="com.example.floraad.view.fragments.UpdateFloraFragment"
+        android:label="fragment_update_flora"
+        tools:layout="@layout/fragment_update_flora" >
+        <action
+            android:id="@+id/action_updateFloraFragment_to_ListarFloraFragment"
+            app:destination="@id/ListarFloraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addImagenFragment"
+        android:name="com.example.floraad.view.fragments.AddImagenFragment"
+        android:label="fragment_add_imagen"
+        tools:layout="@layout/fragment_add_imagen" >
+        <action
+            android:id="@+id/action_addImagenFragment_to_ListarImagenFragment"
+            app:destination="@id/ListarImagenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateImagenFragment"
+        android:name="com.example.floraad.view.fragments.UpdateImagenFragment"
+        android:label="fragment_update_imagen"
+        tools:layout="@layout/fragment_update_imagen" >
+        <action
+            android:id="@+id/action_updateImagenFragment_to_ListarImagenFragment"
+            app:destination="@id/ListarImagenFragment" />
+    </fragment>
+</navigation>
