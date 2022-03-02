@@ -2,6 +2,7 @@ package com.example.floraad.model.client;
 
 import com.example.floraad.model.entity.CreateResponse;
 import com.example.floraad.model.entity.Flora;
+import com.example.floraad.model.entity.Imagen;
 import com.example.floraad.model.entity.RowsResponse;
 
 import java.util.ArrayList;
@@ -18,6 +19,14 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface FloraClient {
+
+    //Borrar imagen ruta
+    @DELETE("api/imagen/{id}")
+    Call<RowsResponse> deleteImagen(@Path("id") long id);
+
+    //Intento que a partir de introudcir el nombre obtener el id //Pero no va
+    @GET("api/flora/{nombre}")
+    Call<Flora>getFloraNombre(@Path("nombre") String nombre);
 
     @DELETE("api/flora/{id}")
     Call<RowsResponse> deleteFlora(@Path("id") long id);

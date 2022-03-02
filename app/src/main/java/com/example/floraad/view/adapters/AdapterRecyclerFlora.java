@@ -24,15 +24,15 @@ import com.example.floraad.model.entity.Flora;
 import java.util.List;
 
 public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFlora.ViewHolder> implements PopupMenu.OnMenuItemClickListener{
-    private List<Flora> moviles;
+    private List<Flora> floras;
     private Activity activity;
     private View view;
     private ViewModel viewModel;
     private NavController navController;
-    private Flora movil;
+    private Flora flora;
 
-    public AdapterRecyclerFlora(List<Flora> moviles, Activity activity, View view) {
-        this.moviles = moviles;
+    public AdapterRecyclerFlora(List<Flora> floras, Activity activity, View view) {
+        this.floras = floras;
         this.activity = activity;
         this.view = view;
         viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
@@ -50,14 +50,14 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvNumeroReparaciones.setText(moviles.get(holder.getAdapterPosition()).getNumeroReparaciones()+"");
-        holder.tvMarca.setText(moviles.get(holder.getAdapterPosition()).getMarca());
-        holder.tvModelo.setText(moviles.get(holder.getAdapterPosition()).getModelo());
-        Glide.with(activity).load(moviles.get(holder.getAdapterPosition()).getUrl()).into(holder.imgMovil);
+        holder.tvNumeroReparaciones.setText(floras.get(holder.getAdapterPosition()).getNumeroReparaciones()+"");
+        holder.tvMarca.setText(floras.get(holder.getAdapterPosition()).getMarca());
+        holder.tvModelo.setText(floras.get(holder.getAdapterPosition()).getModelo());
+        Glide.with(activity).load(floras.get(holder.getAdapterPosition()).getUrl()).into(holder.imgMovil);
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                movil = moviles.get(holder.getAdapterPosition());
+                flora = floras.get(holder.getAdapterPosition());
                 menuPopup(v);
             }
         });
@@ -73,7 +73,7 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
 
     @Override
     public int getItemCount() {
-        return moviles.size();
+        return floras.size();
     }
 
     @Override
@@ -81,20 +81,20 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
         switch (item.getItemId()){
 
             case R.id.borraMovil:
-                viewModel.deleteMovil(movil.getId());
+                viewModel.deleteMovil(flora.getId());
                 navController.navigate(R.id.listaReparacionesFragment);
                 navController.navigate(R.id.listaMovilesFragment);
 
 
                 break;
             case R.id.editarMovil:
-                viewModel.setMovilEditar(movil);
+                viewModel.setMovilEditar(flora);
                 navController.navigate(R.id.editMovilFragment);
 
                 break;
 
             case R.id.verMovil:
-                viewModel.setMovilVer(movil);
+                viewModel.setMovilVer(flora);
                 navController.navigate(R.id.vistaMovilFragment);
 
                 break;

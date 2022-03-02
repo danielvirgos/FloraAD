@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ListarFloraFragment extends Fragment {
 
-    Button btflora, btimagen;
+    Button btflora;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,16 +35,8 @@ public class ListarFloraFragment extends Fragment {
     }
 
     private void init() {
+
         btflora = getView().findViewById(R.id.btAddFlora);
-        btimagen = getView().findViewById(R.id.btListarImagenes);
-
-        btimagen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavHostFragment.findNavController(ListarFloraFragment.this).navigate(R.id.action_ListarFloraFragment_to_ListarImagenFragment);
-            }
-        });
-
         btflora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

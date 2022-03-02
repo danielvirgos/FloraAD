@@ -12,30 +12,11 @@
         tools:layout="@layout/fragment_listar_flora">
 
         <action
-            android:id="@+id/action_ListarFloraFragment_to_ListarImagenFragment"
-            app:destination="@id/ListarImagenFragment" />
-        <action
             android:id="@+id/action_ListarFloraFragment_to_updateFloraFragment"
             app:destination="@id/updateFloraFragment" />
         <action
             android:id="@+id/action_ListarFloraFragment_to_addFloraFragment"
             app:destination="@id/addFloraFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/ListarImagenFragment"
-        android:name="com.example.floraad.view.fragments.ListarImagenFragment"
-        android:label="@string/listar_imagen_fragment_label"
-        tools:layout="@layout/fragment_listar_imagen">
-
-        <action
-            android:id="@+id/action_ListarImagenFragment_to_ListarFloraFragment"
-            app:destination="@id/ListarFloraFragment" />
-        <action
-            android:id="@+id/action_ListarImagenFragment_to_addImagenFragment"
-            app:destination="@id/addImagenFragment" />
-        <action
-            android:id="@+id/action_ListarImagenFragment_to_updateImagenFragment"
-            app:destination="@id/updateImagenFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFloraFragment"
@@ -45,6 +26,9 @@
         <action
             android:id="@+id/action_addFloraFragment_to_ListarFloraFragment"
             app:destination="@id/ListarFloraFragment" />
+        <action
+            android:id="@+id/action_addFloraFragment_to_addImagenFragment"
+            app:destination="@id/addImagenFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateFloraFragment"
@@ -54,6 +38,9 @@
         <action
             android:id="@+id/action_updateFloraFragment_to_ListarFloraFragment"
             app:destination="@id/ListarFloraFragment" />
+        <action
+            android:id="@+id/action_updateFloraFragment_to_updateImagenFragment"
+            app:destination="@id/updateImagenFragment" />
     </fragment>
     <fragment
         android:id="@+id/addImagenFragment"
@@ -61,8 +48,8 @@
         android:label="fragment_add_imagen"
         tools:layout="@layout/fragment_add_imagen" >
         <action
-            android:id="@+id/action_addImagenFragment_to_ListarImagenFragment"
-            app:destination="@id/ListarImagenFragment" />
+            android:id="@+id/action_addImagenFragment_to_addFloraFragment"
+            app:destination="@id/addFloraFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateImagenFragment"
@@ -70,7 +57,7 @@
         android:label="fragment_update_imagen"
         tools:layout="@layout/fragment_update_imagen" >
         <action
-            android:id="@+id/action_updateImagenFragment_to_ListarImagenFragment"
-            app:destination="@id/ListarImagenFragment" />
+            android:id="@+id/action_updateImagenFragment_to_updateFloraFragment"
+            app:destination="@id/updateFloraFragment" />
     </fragment>
 </navigation>
