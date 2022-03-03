@@ -5,19 +5,24 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.floraad.model.Repository;
 import com.example.floraad.model.entity.Flora;
 import com.example.floraad.model.entity.Imagen;
 
+import java.util.ArrayList;
+
 public class ViewModel extends AndroidViewModel {
 
     private Repository repository;
+    private MutableLiveData<String> mText;
 
     public ViewModel(@NonNull Application application) {
         super(application);
         repository = new Repository(application);
+        mText = new MutableLiveData<>();
     }
 
     //--------------------Methods AddFlora-------------------------------
@@ -73,4 +78,16 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteImagen(id);
     }
 
+    //--------------------Methods ListFlora----------------------------------
+
+    public MutableLiveData<ArrayList<Flora>> getFloraLiveData() {
+        return repository.getFloraLiveData();
+    }
+
+    public void getFlora() {
+        repository.getFlora();
+    }
+    public LiveData<String> getText() {
+        return mText;
+    }
 }

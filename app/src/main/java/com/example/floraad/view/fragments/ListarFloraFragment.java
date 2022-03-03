@@ -1,6 +1,7 @@
 package com.example.floraad.view.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +16,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.floraad.R;
+import com.example.floraad.databinding.FragmentListarFloraBinding;
+import com.example.floraad.view.adapters.AdapterRecyclerFlora;
+import com.example.floraad.viewmodel.ViewModel;
 
 import java.util.List;
 
 public class ListarFloraFragment extends Fragment {
 
     Button btflora;
+    ViewModel viewModel;
+    private FragmentListarFloraBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,23 +50,17 @@ public class ListarFloraFragment extends Fragment {
             }
         });
 
+        AdapterRecyclerFlora floraAdapter = new AdapterRecyclerFlora(getContext(), getActivity(), getView());
+        RecyclerView recyclerView = getView().findViewById(R.id.recyclerViewFlora);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(floraAdapter);
 
-        private void cargaRecycler() {
-            viewModel.getAllMoviles();
+        viewModel.getFloraLiveData().observe(this, floraPlural -> {
+            Log.v("xyzyx", floraPlural.toString());
+            floraAdapter.setFloraList(floraPlural);
 
-            RecyclerView recyclerView = getView().findViewById(R.id.recyclerViewFlora);
-            AdapterRecyclerMovil adapter = new AdapterRecyclerMovil(moviles,getActivity(),getView());
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            viewModel.getListMutableLiveDataMoviles().observe(getActivity(), new Observer<List<Movil>>() {
-                @Override
-                public void onChanged(List<Movil> m) {
-                    moviles.clear();
-                    moviles.addAll(m);
-                    adapter.notifyDataSetChanged();
-                }
-            });
-        }
+        });
+        viewModel.getFlora();
 
     }
 

@@ -8,167 +8,21 @@
     tools:context=".view.fragments.UpdateFloraFragment">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/guideline8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
+        android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.24" />
-
-    <ImageView
-        android:id="@+id/imgImagenUpdate"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toStartOf="@+id/btUpdateImagen"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
-
-    <EditText
-        android:id="@+id/etEditNombre"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/nombre"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEditFamilia"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
-
-    <EditText
-        android:id="@+id/etEditFamilia"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/familia"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEditBiotipo"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditNombre" />
-
-    <EditText
-        android:id="@+id/etEditBiotipo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/biotipo"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEditAltitud"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditFamilia" />
-
-    <EditText
-        android:id="@+id/etEditAltitud"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/altitud"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEditBiologia_reproductiva"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditBiotipo" />
-
-    <EditText
-        android:id="@+id/etEditBiologia_reproductiva"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/biologia_reproductiva"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditAltitud" />
-
-    <EditText
-        android:id="@+id/etEditDemografia"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/demografia"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEditExpresionSexual"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
-
-    <EditText
-        android:id="@+id/etEditExpresionSexual"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/expresion_sexual"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEditDistribucion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/etEditDemografia" />
-
-    <EditText
-        android:id="@+id/etEditDistribucion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/distribucion"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEditFloracion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/etEditExpresionSexual" />
-
-    <EditText
-        android:id="@+id/etEditFloracion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/floracion"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEditFitosociologia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/etEditDistribucion" />
-
-    <EditText
-        android:id="@+id/etEditFitosociologia"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:hint="@string/fitosociologia"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/etEditFloracion" />
-
+        app:layout_constraintGuide_percent="0.08" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
+        android:id="@+id/guideline10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -184,8 +38,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:layout_constraintVertical_bias="0.506" />
 
     <Button
@@ -196,20 +50,433 @@
         android:text="@string/txtbtCancelar"
         app:icon="@drawable/ic_action_retroceder"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
-    <Button
-        android:id="@+id/btUpdateImagen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/subirImagen"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imgImagenUpdate"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout0"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/idFlora"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nombre"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditFamilia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/familia"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditBiotipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/biotipo"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAEditAltitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/altitud"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditBiologia_reproductiva"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/biologia_reproductiva"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout6"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditDemografia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/demografia"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout7"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditExpresionSexual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/expresion_sexual"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout8"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditDistribucion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/distribucion"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout9"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditFloracion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/floracion"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout10"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditFitosociologia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/fitosociologia"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayou11"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditIdentificacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/identificacion"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout11"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditHabitat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/habitat"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout12"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditFructificacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/biotipo"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout13"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditPolinizacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/polinizacion"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout14"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditDispersion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dispersion"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout15"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditNumeroCrosomatico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/numero_cromosomatico"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout16"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditReproduccionAsexual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/reproduccion_asexual"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout17"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditBiologia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/biologia"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout18"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditAmenazas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/amenazas"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout19"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#FAF0F0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditMedidas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/medidas_propuestas"
+                    android:hintTextColor="#5D4037"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#EFE9E9"
+                    android:textColorHint="#C5BEBE"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

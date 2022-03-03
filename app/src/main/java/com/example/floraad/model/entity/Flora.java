@@ -1,6 +1,9 @@
 package com.example.floraad.model.entity;
 
-public class Flora {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Flora implements Parcelable {
 
     private long id;
     private String nombre, familia, identificacion, altitud, habitat,
@@ -236,4 +239,33 @@ public class Flora {
                 '}';
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(nombre);
+        dest.writeString(familia);
+        dest.writeString(identificacion);
+        dest.writeString(altitud);
+        dest.writeString(habitat);
+        dest.writeString(fitosociologia);
+        dest.writeString(biotipo);
+        dest.writeString(biologia_reproductiva);
+        dest.writeString(floracion);
+        dest.writeString(fructificacion);
+        dest.writeString(expresion_sexual);
+        dest.writeString(polinizacion);
+        dest.writeString(dispersion);
+        dest.writeString(numero_cromosomatico);
+        dest.writeString(reproduccion_asexual);
+        dest.writeString(distribucion);
+        dest.writeString(biologia);
+        dest.writeString(demografia);
+        dest.writeString(amenazas);
+        dest.writeString(medidas_propuestas);
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.floraad.view.adapters;
 
 import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,38 +13,41 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.floraad.R;
 import com.example.floraad.model.entity.Flora;
+import com.example.floraad.viewmodel.ViewModel;
 
 import java.util.List;
 
 public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFlora.ViewHolder> implements PopupMenu.OnMenuItemClickListener{
-    private List<Flora> floras;
-    private Activity activity;
-    private View view;
-    private ViewModel viewModel;
-    private NavController navController;
-    private Flora flora;
 
-    public AdapterRecyclerFlora(List<Flora> floras, Activity activity, View view) {
-        this.floras = floras;
+    private Flora flora;
+    private Context context;
+    private List<Flora> floraList;
+    private Activity activity;
+    private NavController navController;
+    private ViewModel viewModel;
+    private Bundle bundle;
+
+    public AdapterRecyclerFlora(Context context, Activity activity, View view) {
+        this.context = context;
         this.activity = activity;
-        this.view = view;
-        viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
+        viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(com.example.floraad.viewmodel.ViewModel.class);
         navController = Navigation.findNavController(view);
+
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movil,parent,false);
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_flora,parent,false);
         ViewHolder holder = new ViewHolder(vista);
 
         return holder;
@@ -50,14 +55,16 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvNumeroReparaciones.setText(floras.get(holder.getAdapterPosition()).getNumeroReparaciones()+"");
-        holder.tvMarca.setText(floras.get(holder.getAdapterPosition()).getMarca());
-        holder.tvModelo.setText(floras.get(holder.getAdapterPosition()).getModelo());
-        Glide.with(activity).load(floras.get(holder.getAdapterPosition()).getUrl()).into(holder.imgMovil);
+
+        String url ="https://informatica.ieszaidinvergeles.org:10019/ad/felix/public/api/imagen/" + floraList.get(holder.getAdapterPosition()).getId() + "/flora";
+        holder.tvNombre.setText(floraList.get(holder.getAdapterPosition()).getNombre()+"");
+        holder.tvFamilia.setText(floraList.get(holder.getAdapterPosition()).getFamilia());
+        holder.tvId.setText((int) floraList.get(holder.getAdapterPosition()).getId());
+        Glide.with(context).load(url).into(holder.imgFlora);
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flora = floras.get(holder.getAdapterPosition());
+                flora = floraList.get(holder.getAdapterPosition());
                 menuPopup(v);
             }
         });
@@ -71,32 +78,31 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
         popup.show();
     }
 
+    public void setFloraList(List<Flora> floraList) {
+        this.floraList = floraList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
-        return floras.size();
+        return floraList.size();
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()){
 
-            case R.id.borraMovil:
-                viewModel.deleteMovil(flora.getId());
-                navController.navigate(R.id.listaReparacionesFragment);
-                navController.navigate(R.id.listaMovilesFragment);
+            case R.id.borrarFlora:
+                viewModel.deleteFlora(flora.getId());
+                viewModel.deleteImagen(flora.getId());
+                navController.navigate(R.id.ListarFloraFragment);
 
 
                 break;
-            case R.id.editarMovil:
-                viewModel.setMovilEditar(flora);
-                navController.navigate(R.id.editMovilFragment);
-
-                break;
-
-            case R.id.verMovil:
-                viewModel.setMovilVer(flora);
-                navController.navigate(R.id.vistaMovilFragment);
-
+            case R.id.editarFlora:
+                bundle = new Bundle();
+                bundle.putParcelable("flora", flora);
+                navController.navigate(R.id.updateFloraFragment, bundle);
                 break;
 
         }
@@ -104,17 +110,17 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvNumeroReparaciones,tvMarca,tvModelo;
-        ImageView imgMovil;
+        TextView tvNombre,tvId,tvFamilia;
+        ImageView imgFlora;
         ConstraintLayout parent_layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNumeroReparaciones = itemView.findViewById(R.id.tvNumeroReparaciones);
-            tvMarca = itemView.findViewById(R.id.tvMarca);
-            tvModelo = itemView.findViewById(R.id.tvModelo);
-            imgMovil = itemView.findViewById(R.id.imgMovil);
-            parent_layout = itemView.findViewById(R.id.clItemMovil);
+            tvFamilia = itemView.findViewById(R.id.tvFamilia);
+            tvNombre = itemView.findViewById(R.id.tvNombre);
+            tvId = itemView.findViewById(R.id.tvId);
+            imgFlora = itemView.findViewById(R.id.imageView);
+            parent_layout = itemView.findViewById(R.id.itemLayout);
         }
     }
 }

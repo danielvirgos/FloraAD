@@ -38,4 +38,8 @@
     <string name="txtbtCancelar">Cancelar</string>
     <string name="Next">Siguiente</string>
     <string name="subirImagen">Subir imagen</string>
+    <string name="finalAdd">Finalizar</string>
+    <string name="idFlora">IdFlora</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="descripImgView">Imagen del recylcer view</string>
 </resources>
