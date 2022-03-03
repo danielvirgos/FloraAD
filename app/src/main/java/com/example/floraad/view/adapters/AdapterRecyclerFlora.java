@@ -18,8 +18,6 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
 import com.example.floraad.R;
 import com.example.floraad.model.entity.Flora;
 import com.example.floraad.viewmodel.ViewModel;
