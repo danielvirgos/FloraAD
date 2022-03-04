@@ -2,10 +2,14 @@ package com.example.floraad.view.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +22,16 @@ import com.example.floraad.model.entity.Flora;
 import com.example.floraad.viewmodel.ViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
-
 public class AddFloraFragment extends Fragment {
 
+    public static int mode;
     Button btContinuar, btCancelar;
     ViewModel viewModel;
     FragmentAddFloraBinding binding;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         init();
     }
 
@@ -41,7 +46,20 @@ public class AddFloraFragment extends Fragment {
 
     private void init() {
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
+        mode = 0;
+        viewModel.getAddFloraLiveData().observe(getViewLifecycleOwner(), new Observer<Long>() {
+            @Override
+            public void onChanged(Long aLong) {
+                if(aLong > 0) {
 
+                    NavHostFragment.findNavController(AddFloraFragment.this)
+                            .navigate(R.id.action_addFloraFragment_to_addImagenFragment);
+                    mode=1;
+                } else {
+                    Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         btContinuar = getView().findViewById(R.id.btAvanzaAdd);
         btContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,12 +76,12 @@ public class AddFloraFragment extends Fragment {
             }
         });
 
-
     }
 
     private void crearFlora() {
         if(comprobarCamposFlora()) {
             viewModel.createFlora(recopilaDatos());
+            Log.v("zzzz", recopilaDatos().toString());
             NavHostFragment.findNavController(AddFloraFragment.this).navigate(R.id.action_addFloraFragment_to_addImagenFragment);
         } else {
             Toast.makeText(getContext(), "Asegurese de rellenar todos los campos", Toast.LENGTH_SHORT);
@@ -90,38 +108,36 @@ public class AddFloraFragment extends Fragment {
         flora.setBiotipo(binding.etAddBiotipo.getText().toString());
         flora.setFructificacion(binding.etAddFructificacion.getText().toString());
         flora.setMedidas_propuestas(binding.etAddMedidas.getText().toString());
-        flora.setId(Long.parseLong(binding.etAddId.getText().toString()));
         return flora;
     }
 
     private boolean comprobarCamposFlora() {
-        if(validoCampoRelleno(binding.etAddAltitud)
-                || validoCampoRelleno(binding.etAddAmenazas)
-                || validoCampoRelleno(binding.etAddBiologia)
-                || validoCampoRelleno(binding.etAddNumeroCrosomatico)
-                || validoCampoRelleno(binding.etAddIdentificacion)
-                || validoCampoRelleno(binding.etAddNombre)
-                || validoCampoRelleno(binding.etAddHabitat)
-                || validoCampoRelleno(binding.etAddFloracion)
-                || validoCampoRelleno(binding.etAddFitosociologia)
-                || validoCampoRelleno(binding.etAddFamilia)
-                || validoCampoRelleno(binding.etAddExpresionSexual)
-                || validoCampoRelleno(binding.etAddDistribucion)
-                || validoCampoRelleno(binding.etAddDispersion)
-                || validoCampoRelleno(binding.etAddDemografia)
-                || validoCampoRelleno(binding.etAddBiologiaReproductiva)
-                || validoCampoRelleno(binding.etAddBiotipo)
-                || validoCampoRelleno(binding.etAddFructificacion)
-                || validoCampoRelleno(binding.etAddMedidas)
-                || validoCampoRelleno(binding.etAddId)
+        if(validoCampoRellenoEdit(binding.etAddAltitud)
+                || validoCampoRellenoEdit(binding.etAddAmenazas)
+                || validoCampoRellenoEdit(binding.etAddBiologia)
+                || validoCampoRellenoEdit(binding.etAddNumeroCrosomatico)
+                || validoCampoRellenoEdit(binding.etAddIdentificacion)
+                || validoCampoRellenoEdit(binding.etAddNombre)
+                || validoCampoRellenoEdit(binding.etAddHabitat)
+                || validoCampoRellenoEdit(binding.etAddFloracion)
+                || validoCampoRellenoEdit(binding.etAddFitosociologia)
+                || validoCampoRellenoEdit(binding.etAddFamilia)
+                || validoCampoRellenoEdit(binding.etAddExpresionSexual)
+                || validoCampoRellenoEdit(binding.etAddDistribucion)
+                || validoCampoRellenoEdit(binding.etAddDispersion)
+                || validoCampoRellenoEdit(binding.etAddDemografia)
+                || validoCampoRellenoEdit(binding.etAddBiologiaReproductiva)
+                || validoCampoRellenoEdit(binding.etAddBiotipo)
+                || validoCampoRellenoEdit(binding.etAddFructificacion)
+                || validoCampoRellenoEdit(binding.etAddMedidas)
         ) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 
-    public  static   boolean validoCampoRelleno (TextInputEditText editalo){
+    public  static   boolean validoCampoRellenoEdit (TextInputEditText editalo){
         if(editalo.getText().toString().isEmpty() || editalo.getText().toString() == null){
             editalo.setError("Error debes rellenar el campo de texto");
             return false;

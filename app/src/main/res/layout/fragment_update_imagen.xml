@@ -25,8 +25,7 @@
             android:id="@+id/etEditIdFlora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/idFlora"
-            android:hintTextColor="#5D4037"
+            android:hint="@string/nombreFlora"
             android:imeOptions="actionNext"
             android:inputType="text"
             android:textColor="#EFE9E9"
@@ -53,7 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nombre"
-            android:hintTextColor="#5D4037"
             android:imeOptions="actionNext"
             android:inputType="text"
             android:textColor="#EFE9E9"
@@ -80,7 +78,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/descripcion"
-            android:hintTextColor="#5D4037"
             android:imeOptions="actionNext"
             android:inputType="text"
             android:textColor="#EFE9E9"
@@ -117,19 +114,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btRetrocedeAddFlora"
+        android:id="@+id/btRetrocedeEditFlora"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txtbtCancelar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btFinalizarAdd"
+        app:layout_constraintEnd_toStartOf="@+id/btFinalizarEdit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
     <Button
-        android:id="@+id/btFinalizarAdd"
+        android:id="@+id/btFinalizarEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/finalAdd"
@@ -137,7 +134,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btRetrocedeAddFlora"
+        app:layout_constraintStart_toEndOf="@+id/btRetrocedeEditFlora"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
         app:layout_constraintVertical_bias="0.505" />
 </androidx.constraintlayout.widget.ConstraintLayout>

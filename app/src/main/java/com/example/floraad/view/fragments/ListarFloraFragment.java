@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +43,8 @@ public class ListarFloraFragment extends Fragment {
 
     private void init() {
 
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
+
         btflora = getView().findViewById(R.id.btAddFlora);
         btflora.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +65,12 @@ public class ListarFloraFragment extends Fragment {
         });
         viewModel.getFlora();
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
 }

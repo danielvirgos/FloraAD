@@ -20,6 +20,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.floraad.R;
 import com.example.floraad.model.entity.Flora;
 import com.example.floraad.viewmodel.ViewModel;
@@ -60,7 +61,8 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
         holder.tvNombre.setText(floraList.get(holder.getAdapterPosition()).getNombre()+"");
         holder.tvFamilia.setText(floraList.get(holder.getAdapterPosition()).getFamilia());
         holder.tvId.setText((int) floraList.get(holder.getAdapterPosition()).getId());
-        Glide.with(context).load(url).into(holder.imgFlora);
+        Glide.with(context).load(url).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).into(holder.imgFlora);
+
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +87,9 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
 
     @Override
     public int getItemCount() {
+        if(floraList == null) {
+            return 0;
+        }
         return floraList.size();
     }
 
