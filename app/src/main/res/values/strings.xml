@@ -42,4 +42,6 @@
     <string name="idFlora">IdFlora</string>
     <string name="descripcion">Descripcion</string>
     <string name="descripImgView">Imagen del recylcer view</string>
+    <string name="nuevaFlora">Nueva FloraFauna</string>
+    <string name="nombreFlora">Nombre Flora</string>
 </resources>

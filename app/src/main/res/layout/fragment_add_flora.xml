@@ -34,13 +34,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Next"
+        android:textColor="#512DA8"
         app:icon="@drawable/ic_action_avanzar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:layout_constraintVertical_bias="0.506" />
+        app:layout_constraintVertical_bias="0.506"
+        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
     <Button
         android:id="@+id/btRetrocedeInicioAdd"
@@ -48,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txtbtCancelar"
+        android:textColor="#512DA8"
         app:icon="@drawable/ic_action_retroceder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -69,24 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout0"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#FAF0F0">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAddId"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/idFlora"
-                    android:imeOptions="actionNext"
-                    android:inputType="text"
-                    android:textColor="#EFE9E9"
-                    android:textColorHint="#C5BEBE"
-                    tools:ignore="TextContrastCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout1"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

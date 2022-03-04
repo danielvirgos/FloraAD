@@ -44,6 +44,42 @@ public class Flora implements Parcelable {
         this.medidas_propuestas = medidas_propuestas;
     }
 
+    protected Flora(Parcel in) {
+        id = in.readLong();
+        nombre = in.readString();
+        familia = in.readString();
+        identificacion = in.readString();
+        altitud = in.readString();
+        habitat = in.readString();
+        fitosociologia = in.readString();
+        biotipo = in.readString();
+        biologia_reproductiva = in.readString();
+        floracion = in.readString();
+        fructificacion = in.readString();
+        expresion_sexual = in.readString();
+        polinizacion = in.readString();
+        dispersion = in.readString();
+        numero_cromosomatico = in.readString();
+        reproduccion_asexual = in.readString();
+        distribucion = in.readString();
+        biologia = in.readString();
+        demografia = in.readString();
+        amenazas = in.readString();
+        medidas_propuestas = in.readString();
+    }
+
+    public static final Creator<Flora> CREATOR = new Creator<Flora>() {
+        @Override
+        public Flora createFromParcel(Parcel in) {
+            return new Flora(in);
+        }
+
+        @Override
+        public Flora[] newArray(int size) {
+            return new Flora[size];
+        }
+    };
+
     public long getId() {
         return id;
     }
