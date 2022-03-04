@@ -100,7 +100,7 @@
         app:layout_constraintGuide_percent="0.80437756" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgEdit"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"

@@ -9,13 +9,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.floraad.R;
-import com.example.floraad.databinding.FragmentListarFloraBinding;
 import com.example.floraad.databinding.FragmentUpdateFloraBinding;
 import com.example.floraad.model.entity.Flora;
 import com.example.floraad.viewmodel.ViewModel;
@@ -50,7 +50,7 @@ public class UpdateFloraFragment extends Fragment {
         rellenoCampos();
 
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
-        /*viewModel.getEditFloraLiveData().observe(this, new Observer<Long>() {
+        viewModel.getEditFloraLiveData().observe(this, new Observer<Long>() {
             @Override
             public void onChanged(Long aLong) {
                 if(aLong >= 0) {
@@ -59,7 +59,7 @@ public class UpdateFloraFragment extends Fragment {
             }
         });
 
-        viewModel.getDeleteFloraLiveData().observe(this, new Observer<Long>() {
+        /*viewModel.getDeleteFloraLiveData().observe(this, new Observer<Long>() {
             @Override
             public void onChanged(Long aLong) {
                 if(aLong >=0) {
@@ -80,6 +80,7 @@ public class UpdateFloraFragment extends Fragment {
         binding.btAvanzaEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 updateFlora();
             }
         });
@@ -117,13 +118,14 @@ public class UpdateFloraFragment extends Fragment {
     }
 
     private void updateFlora() {
-        if(comprobarCamposFlora()) {
-            viewModel.editFlora(flora.getId(),recopilaDatos());
-            AddFloraFragment.mode=2;
-            NavHostFragment.findNavController(UpdateFloraFragment.this).navigate(R.id.action_updateFloraFragment_to_updateImagenFragment);
-        } else {
-            Toast.makeText(getContext(), "Asegurese de rellenar todos los campos", Toast.LENGTH_SHORT);
-        }
+        Log.v("zzzzz", "Recopilos los datos de los campos");
+        viewModel.editFlora(flora.getId(),recopilaDatos());
+        Log.v("zzzzz", "Flora Editada");
+        AddFloraFragment.mode=2;
+        NavHostFragment.findNavController(UpdateFloraFragment.this).navigate(R.id.action_updateFloraFragment_to_ListarFloraFragment);
+
+        Toast.makeText(getContext(), "Asegurese de rellenar todos los campos", Toast.LENGTH_SHORT);
+
     }
 
     private Flora recopilaDatos() {
@@ -146,11 +148,13 @@ public class UpdateFloraFragment extends Fragment {
         flora.setBiotipo(binding.etEditBiotipo.getText().toString());
         flora.setFructificacion(binding.etEditFructificacion.getText().toString());
         flora.setMedidas_propuestas(binding.etEditMedidas.getText().toString());
-
+        flora.setPolinizacion(binding.etEditPolinizacion.getText().toString());
+        flora.setReproduccion_asexual(binding.etEditReproduccionAsexual.getText().toString());
         return flora;
     }
 
     private boolean comprobarCamposFlora() {
+        Log.v("zzzzz", "Compruebo que todos los campos estan rellenos");
         if(validoCampoRelleno(binding.etAEditAltitud)
                 || validoCampoRelleno(binding.etEditAmenazas)
                 || validoCampoRelleno(binding.etEditBiologia)
@@ -169,7 +173,10 @@ public class UpdateFloraFragment extends Fragment {
                 || validoCampoRelleno(binding.etEditBiotipo)
                 || validoCampoRelleno(binding.etEditFructificacion)
                 || validoCampoRelleno(binding.etEditMedidas)
+                || validoCampoRelleno(binding.etEditReproduccionAsexual)
+                || validoCampoRelleno(binding.etEditPolinizacion)
         ) {
+            Log.v("zzzz", "No estan rellenos todos los campos");
             return false;
         } else {
             return true;

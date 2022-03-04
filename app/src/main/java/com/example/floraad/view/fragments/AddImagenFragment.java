@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -59,10 +60,25 @@ public class AddImagenFragment extends Fragment {
         activityResultLauncher = getLauncher();
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
-        MutableLiveData<ArrayList<Flora>> floraList = viewModel.getFloraLiveData();
+        viewModel.getFloraLiveData().observe(this, new Observer<ArrayList<Flora>>() {
+            @Override
+            public void onChanged(ArrayList<Flora> floras) {
+                if(AddFloraFragment.mode == 1) {
+                    id =  floras.get(viewModel.getFloraLiveData().getValue().size() - 1).getId();
+                    binding.etAddIdFlora.setText(floras.get(viewModel.getFloraLiveData().getValue().size() - 1).getNombre() + "");
+                    Log.v("zzzz", " " + id);
+                }else if(AddFloraFragment.mode == 2){
+                    flora = bundle.getParcelable("flora");
+                    id = flora.getId();
+                    binding.etAddIdFlora.setText(String.valueOf(flora.getNombre()));
+                    Log.v("zzzz", " " + id);
+                }
+                AddFloraFragment.mode=0;
+            }
+        });
         viewModel.getFlora();
         Log.v("zzzz", ""+ AddFloraFragment.mode);
-        floraList.observe(this,  floras -> {
+        /*floraList.observe(this,  floras -> {
             Log.v("zzzz", "Activo el observe");
             if(AddFloraFragment.mode == 1) {
                 id =  floras.get(viewModel.getFloraLiveData().getValue().size() - 1).getId();
@@ -75,7 +91,7 @@ public class AddImagenFragment extends Fragment {
                 Log.v("zzzz", " " + id);
             }
             AddFloraFragment.mode=0;
-        });
+        });*/
 
         binding.btRetrocedeAddFlora.setOnClickListener(new View.OnClickListener() {
             @Override

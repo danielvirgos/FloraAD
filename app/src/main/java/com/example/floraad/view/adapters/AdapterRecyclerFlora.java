@@ -35,7 +35,6 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
     private Activity activity;
     private NavController navController;
     private ViewModel viewModel;
-    private Bundle bundle;
 
     public AdapterRecyclerFlora(Context context, Activity activity, View view) {
         this.context = context;
@@ -56,17 +55,16 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        flora = floraList.get(holder.getAdapterPosition());
         String url ="https://informatica.ieszaidinvergeles.org:10019/ad/felix/public/api/imagen/" + floraList.get(holder.getAdapterPosition()).getId() + "/flora";
-        holder.tvNombre.setText(floraList.get(holder.getAdapterPosition()).getNombre()+"");
-        holder.tvFamilia.setText(floraList.get(holder.getAdapterPosition()).getFamilia());
-        holder.tvId.setText((int) floraList.get(holder.getAdapterPosition()).getId());
+        holder.tvNombre.setText(flora.getNombre()+"");
+        holder.tvFamilia.setText(flora.getFamilia());
+        holder.tvHabitat.setText(flora.getHabitat());
         Glide.with(context).load(url).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).into(holder.imgFlora);
 
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flora = floraList.get(holder.getAdapterPosition());
                 menuPopup(v);
             }
         });
@@ -102,10 +100,9 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
                 viewModel.deleteImagen(flora.getId());
                 navController.navigate(R.id.ListarFloraFragment);
 
-
                 break;
             case R.id.editarFlora:
-                bundle = new Bundle();
+                Bundle bundle = new Bundle();
                 bundle.putParcelable("flora", flora);
                 navController.navigate(R.id.updateFloraFragment, bundle);
                 break;
@@ -115,7 +112,7 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvNombre,tvId,tvFamilia;
+        TextView tvNombre,tvHabitat,tvFamilia;
         ImageView imgFlora;
         ConstraintLayout parent_layout;
 
@@ -123,7 +120,7 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
             super(itemView);
             tvFamilia = itemView.findViewById(R.id.tvFamilia);
             tvNombre = itemView.findViewById(R.id.tvNombre);
-            tvId = itemView.findViewById(R.id.tvId);
+            tvHabitat = itemView.findViewById(R.id.tvHabitat);
             imgFlora = itemView.findViewById(R.id.imageView);
             parent_layout = itemView.findViewById(R.id.itemLayout);
         }

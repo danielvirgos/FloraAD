@@ -108,28 +108,33 @@ public class AddFloraFragment extends Fragment {
         flora.setBiotipo(binding.etAddBiotipo.getText().toString());
         flora.setFructificacion(binding.etAddFructificacion.getText().toString());
         flora.setMedidas_propuestas(binding.etAddMedidas.getText().toString());
+        flora.setPolinizacion(binding.etAddPolinizacion.getText().toString());
+        flora.setReproduccion_asexual(binding.etAddReproduccionAsexual.getText().toString());
+
         return flora;
     }
 
     private boolean comprobarCamposFlora() {
-        if(validoCampoRellenoEdit(binding.etAddAltitud)
-                || validoCampoRellenoEdit(binding.etAddAmenazas)
-                || validoCampoRellenoEdit(binding.etAddBiologia)
-                || validoCampoRellenoEdit(binding.etAddNumeroCrosomatico)
-                || validoCampoRellenoEdit(binding.etAddIdentificacion)
-                || validoCampoRellenoEdit(binding.etAddNombre)
-                || validoCampoRellenoEdit(binding.etAddHabitat)
-                || validoCampoRellenoEdit(binding.etAddFloracion)
-                || validoCampoRellenoEdit(binding.etAddFitosociologia)
-                || validoCampoRellenoEdit(binding.etAddFamilia)
-                || validoCampoRellenoEdit(binding.etAddExpresionSexual)
-                || validoCampoRellenoEdit(binding.etAddDistribucion)
-                || validoCampoRellenoEdit(binding.etAddDispersion)
-                || validoCampoRellenoEdit(binding.etAddDemografia)
-                || validoCampoRellenoEdit(binding.etAddBiologiaReproductiva)
-                || validoCampoRellenoEdit(binding.etAddBiotipo)
-                || validoCampoRellenoEdit(binding.etAddFructificacion)
-                || validoCampoRellenoEdit(binding.etAddMedidas)
+        if(validoCampoRellenoAdd(binding.etAddAltitud)
+                || validoCampoRellenoAdd(binding.etAddAmenazas)
+                || validoCampoRellenoAdd(binding.etAddBiologia)
+                || validoCampoRellenoAdd(binding.etAddNumeroCrosomatico)
+                || validoCampoRellenoAdd(binding.etAddIdentificacion)
+                || validoCampoRellenoAdd(binding.etAddNombre)
+                || validoCampoRellenoAdd(binding.etAddHabitat)
+                || validoCampoRellenoAdd(binding.etAddFloracion)
+                || validoCampoRellenoAdd(binding.etAddFitosociologia)
+                || validoCampoRellenoAdd(binding.etAddFamilia)
+                || validoCampoRellenoAdd(binding.etAddExpresionSexual)
+                || validoCampoRellenoAdd(binding.etAddDistribucion)
+                || validoCampoRellenoAdd(binding.etAddDispersion)
+                || validoCampoRellenoAdd(binding.etAddDemografia)
+                || validoCampoRellenoAdd(binding.etAddBiologiaReproductiva)
+                || validoCampoRellenoAdd(binding.etAddBiotipo)
+                || validoCampoRellenoAdd(binding.etAddFructificacion)
+                || validoCampoRellenoAdd(binding.etAddMedidas)
+                || validoCampoRellenoAdd(binding.etAddReproduccionAsexual)
+                || validoCampoRellenoAdd(binding.etAddPolinizacion)
         ) {
             return true;
         } else {
@@ -137,7 +142,7 @@ public class AddFloraFragment extends Fragment {
         }
     }
 
-    public  static   boolean validoCampoRellenoEdit (TextInputEditText editalo){
+    public  static   boolean validoCampoRellenoAdd (TextInputEditText editalo){
         if(editalo.getText().toString().isEmpty() || editalo.getText().toString() == null){
             editalo.setError("Error debes rellenar el campo de texto");
             return false;
