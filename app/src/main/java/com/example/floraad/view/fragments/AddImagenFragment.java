@@ -60,24 +60,13 @@ public class AddImagenFragment extends Fragment {
         activityResultLauncher = getLauncher();
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
 
-        viewModel.getFloraLiveData().observe(this, new Observer<ArrayList<Flora>>() {
-            @Override
-            public void onChanged(ArrayList<Flora> floras) {
-                if(AddFloraFragment.mode == 1) {
-                    id =  floras.get(viewModel.getFloraLiveData().getValue().size() - 1).getId();
-                    binding.etAddIdFlora.setText(floras.get(viewModel.getFloraLiveData().getValue().size() - 1).getNombre() + "");
-                    Log.v("zzzz", " " + id);
-                }else if(AddFloraFragment.mode == 2){
-                    flora = bundle.getParcelable("flora");
-                    id = flora.getId();
-                    binding.etAddIdFlora.setText(String.valueOf(flora.getNombre()));
-                    Log.v("zzzz", " " + id);
-                }
-                AddFloraFragment.mode=0;
-            }
-        });
+
+        flora = bundle.getParcelable("flora");
+        id =  flora.getId();
+        binding.etAddIdFlora.setText(flora.getNombre());
+        Log.v("zzzz", " " + id);
+        
         viewModel.getFlora();
-        Log.v("zzzz", ""+ AddFloraFragment.mode);
         /*floraList.observe(this,  floras -> {
             Log.v("zzzz", "Activo el observe");
             if(AddFloraFragment.mode == 1) {
@@ -145,7 +134,7 @@ public class AddImagenFragment extends Fragment {
         String descripcion = binding.etAddDescripcionImg.getText().toString();
 
         if (!(nombre.trim().isEmpty() || descripcion.trim().isEmpty() || resultadoImagen == null)) {
-            imagen.idflora = id;
+              imagen.idflora = id;
             imagen.nombre = nombre;
             imagen.descripcion = descripcion;
             viewModel.saveImagen(resultadoImagen, imagen);

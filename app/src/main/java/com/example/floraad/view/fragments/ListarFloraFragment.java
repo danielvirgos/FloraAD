@@ -23,7 +23,7 @@ import com.example.floraad.viewmodel.ViewModel;
 
 import java.util.List;
 
-public class ListarFloraFragment extends Fragment {
+public class  ListarFloraFragment extends Fragment {
 
     Button btflora;
     ViewModel viewModel;

@@ -55,17 +55,17 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        flora = floraList.get(holder.getAdapterPosition());
         String url ="https://informatica.ieszaidinvergeles.org:10019/ad/felix/public/api/imagen/" + floraList.get(holder.getAdapterPosition()).getId() + "/flora";
-        holder.tvNombre.setText(flora.getNombre()+"");
-        holder.tvFamilia.setText(flora.getFamilia());
-        holder.tvHabitat.setText(flora.getHabitat());
+        holder.tvNombre.setText(floraList.get(holder.getAdapterPosition()).getNombre()+"");
+        holder.tvFamilia.setText(floraList.get(holder.getAdapterPosition()).getFamilia());
+        holder.tvHabitat.setText(floraList.get(holder.getAdapterPosition()).getHabitat());
         Glide.with(context).load(url).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).into(holder.imgFlora);
 
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 menuPopup(v);
+                flora = floraList.get(holder.getAdapterPosition());
             }
         });
 

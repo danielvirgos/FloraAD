@@ -28,6 +28,7 @@ public class AddFloraFragment extends Fragment {
     Button btContinuar, btCancelar;
     ViewModel viewModel;
     FragmentAddFloraBinding binding;
+    Bundle bundle = new Bundle();
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class AddFloraFragment extends Fragment {
                 }
             }
         });
+
         btContinuar = getView().findViewById(R.id.btAvanzaAdd);
         btContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,8 +83,9 @@ public class AddFloraFragment extends Fragment {
     private void crearFlora() {
         if(comprobarCamposFlora()) {
             viewModel.createFlora(recopilaDatos());
+            bundle.putParcelable("flora", recopilaDatos());
             Log.v("zzzz", recopilaDatos().toString());
-            NavHostFragment.findNavController(AddFloraFragment.this).navigate(R.id.action_addFloraFragment_to_addImagenFragment);
+            NavHostFragment.findNavController(AddFloraFragment.this).navigate(R.id.action_addFloraFragment_to_addImagenFragment, bundle);
         } else {
             Toast.makeText(getContext(), "Asegurese de rellenar todos los campos", Toast.LENGTH_SHORT);
         }

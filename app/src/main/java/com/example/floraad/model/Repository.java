@@ -166,17 +166,20 @@ public class Repository {
     //----------------------------Modify Image Methods----------------------------------
 
     public void saveImagen(Intent intent, Imagen imagen) {
+        Log.v("img", "Llego al metodo del repositorio");
         String nombre = "xyzyx.abc";
         copyData(intent, nombre);
         File file = new File(context.getExternalFilesDir(null), nombre);
-        Log.v("xyzyx", file.getAbsolutePath());
+        Log.v("img", file.getAbsolutePath());
         subirImagen(file, imagen);
+        Log.v("img", "llego al metodo para subir imagen, imagen guardada");
     }
 
     private void subirImagen(File file, Imagen imagen) {
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("photo", imagen.nombre, requestFile);
         Call<Long> call = floraClient.subirImagen(body, imagen.idflora, imagen.descripcion);
+        Log.v("img", "cargo el metodo subir imagen del client");
         call.enqueue(new Callback<Long>() {
             @Override
             public void onResponse(Call<Long> call, Response<Long> response) {
