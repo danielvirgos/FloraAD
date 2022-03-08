@@ -55,7 +55,7 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String url ="https://informatica.ieszaidinvergeles.org:10019/ad/felix/public/api/imagen/" + floraList.get(holder.getAdapterPosition()).getId() + "/flora";
+        String url ="https://informatica.ieszaidinvergeles.org:10019/ad/felix/public/images/" + floraList.get(holder.getAdapterPosition()).getId() + "/flora";
         holder.tvNombre.setText(floraList.get(holder.getAdapterPosition()).getNombre()+"");
         holder.tvFamilia.setText(floraList.get(holder.getAdapterPosition()).getFamilia());
         holder.tvHabitat.setText(floraList.get(holder.getAdapterPosition()).getHabitat());
@@ -121,7 +121,7 @@ public class AdapterRecyclerFlora extends RecyclerView.Adapter<AdapterRecyclerFl
             tvFamilia = itemView.findViewById(R.id.tvFamilia);
             tvNombre = itemView.findViewById(R.id.tvNombre);
             tvHabitat = itemView.findViewById(R.id.tvHabitat);
-            imgFlora = itemView.findViewById(R.id.imageView);
+            imgFlora = itemView.findViewById(R.id.imgItemFlora);
             parent_layout = itemView.findViewById(R.id.itemLayout);
         }
     }

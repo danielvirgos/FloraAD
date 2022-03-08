@@ -172,12 +172,14 @@ public class Repository {
         File file = new File(context.getExternalFilesDir(null), nombre);
         Log.v("img", file.getAbsolutePath());
         subirImagen(file, imagen);
-        Log.v("img", "llego al metodo para subir imagen, imagen guardada");
     }
 
     private void subirImagen(File file, Imagen imagen) {
+        Log.v("img", "llego al metodo para subir imagen, imagen guardada");
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
+        Log.v("img", "RequestBody create");
         MultipartBody.Part body = MultipartBody.Part.createFormData("photo", imagen.nombre, requestFile);
+        Log.v("img", "MultipartBody createformData");
         Call<Long> call = floraClient.subirImagen(body, imagen.idflora, imagen.descripcion);
         Log.v("img", "cargo el metodo subir imagen del client");
         call.enqueue(new Callback<Long>() {
@@ -213,6 +215,7 @@ public class Repository {
             }
             in.close();
             out.close();
+            Log.v("img", "Termino de copiar la Data");
         } catch (IOException e) {
             result = false;
             Log.v("xyzyx", e.toString());
@@ -225,7 +228,7 @@ public class Repository {
         call.enqueue(new Callback<RowsResponse>() {
             @Override
             public void onResponse(Call<RowsResponse> call, Response<RowsResponse> response) {
-                deleteImagenLiveData.setValue(response.body().rows);
+                //deleteImagenLiveData.setValue(response.body().rows);
             }
 
             @Override
